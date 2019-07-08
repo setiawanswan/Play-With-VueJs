@@ -11,22 +11,17 @@
           <p>In my spare time I like to create and contribute to open source projects. That helps me to learn a lots of new stuff, grow as a developer and support other open source projects. I love travelling and discovering new places.</p>
         </div>
       </div>
-      <div class="my-skils">
-        <img class="my-skils-image" src="../assets/skils.png" alt />
+      <div>
+        <div class="my-skils">
+          <img class="my-skils-image" src="../assets/skils.png" alt />
+        </div>
       </div>
     </div>
     <div>
-      <div class="my-portofolio"> 
-        <b-container>
-          <b-row>
-            <b-col md=6>
-              <h1>asd</h1>
-            </b-col>
-            <b-col md=6>
-              <h1>asd</h1>
-            </b-col>
-          </b-row>
-        </b-container>
+      <div class="container">
+        <div class="row title-myproject">
+          <p>MY LATEST PROJECT</p>
+        </div>
       </div>
     </div>
   </div>
@@ -65,5 +60,11 @@ export default {
 
 .my-skils-image {
   width: 100%;
+}
+
+.title-project {
+  font-family: Roboto;
+  font-size: 22px;
+  text-align: center;
 }
 </style>
