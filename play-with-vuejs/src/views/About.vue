@@ -1,21 +1,40 @@
 <template>
-<div>
-  <div class="about">
-    <h1>This is an about page</h1>
+<div id="about">
+  <div v-if="done">
+    {{mybiodata}}
   </div>
-  <div>
-    
+  <div v-else>
+    maaf donenya salah
   </div>
+  <!-- v-if -->
+  <div v-show="!done">
+    {{ mybiodata }} 
+  </div> 
+  <!-- v-show hanya tampil sekali saja jika dia false maka CSS nya akan display none-->
 </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue"
-
 export default {
-  name: "home",
-  components:{
-     HelloWorld
+  data(){
+    return{
+      nama : "Setiawan",
+      umur : 100,
+      biodata : '',
+      done: true
+    }
+  },
+  computed: {
+    mybiodata : {
+      get : function(){
+        return this.nama + " umurnya " + this.umur
+        },
+      set : function(params) {
+        let credential = params.split(' ')
+        this.nama = credential[0]
+        this.umur = credential[1]
+        }
+      }
+    }
   }
-}
 </script>
