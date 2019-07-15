@@ -1,25 +1,32 @@
 <template>
   <div>
-    <div id="app">Number {{MixNumberOne}} - Number {{MixNumberTwo}}</div>
-    <div id="member">
+    <div id="app">
       <ul>
         <li 
           v-for="member in members"
-          :key="member"
+          :key="member.id"
         >
-          {{member.nama}} {{member.umur}}
+        {{member.name}} 
+        </li>
+      </ul>
+
+      <h2>Filter</h2>
+
+      <ul>
+        <li 
+          v-for="member in members"
+          :key="member.id"
+        >
+        {{member.name.toUpperCase()}} 
         </li>
       </ul>
     </div>
-    <div id="crew">
-      <ul>
-        <li 
-          v-for="(key, crew) in crews"
-          :key="crew"
-        >
-        {{crew}} - {{key}}
-        </li>
-      </ul>
+    <div id="submit">
+      <input type="text" v-on:keyup.13="cekidot">
+      <button v-on:click="boom('pesan berdarah')"> Click Me !</button>
+      <a href="" v-on:click.prevent="cekidot">Link</a> 
+      <!-- with prevent remove original character so with prevent the link not refresh -->
+      <a  v-bind:href='url_youtube'>Launch to google</a>
     </div>
   </div>
 </template>
@@ -28,22 +35,21 @@
 export default {
   data() {
     return {
-      MixNumberOne: 2,
       members : [
-        {nama: "Ardhim", umur: 10},
-        {nama: "Kresna", umur: 11},
-        {nama: "Hasyim", umur: 12}
+        {name : 'Jhon' , age: 10},
+        {name : 'Simon', age: 21},
+        {name: 'tatoo' , age: 22}
       ],
-      crews : {
-        nama : "Sultan", 
-        umur : 12,
-        hobi : "mancing"
-      }
+      url_youtube : 'https://www.youtube.com/'
     };
   },
-  computed: {
-    MixNumberTwo: function() {
-      return this.MixNumberOne + 2;
+  methods : {
+    boom : function(text){
+      console.log('Boom')
+      alert('Boom' + text)
+    },
+    cekidot : function(){
+      console.log('cekidot terpanggil')
     }
   }
 };
